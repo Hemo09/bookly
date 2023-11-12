@@ -1,5 +1,6 @@
 import 'package:bookly/features/home_page/presentaion/views/widgets/custom_list_item.dart';
 import 'package:flutter/material.dart';
+
 class CustomListBooks extends StatelessWidget {
   const CustomListBooks({super.key});
 
@@ -8,6 +9,7 @@ class CustomListBooks extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .3,
       child: ListView.separated(
+          physics: const BouncingScrollPhysics(),
           itemCount: 20,
           separatorBuilder: (context, index) {
             return const SizedBox(
