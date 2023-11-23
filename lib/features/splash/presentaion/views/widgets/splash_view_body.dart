@@ -1,6 +1,6 @@
 import 'package:bookly/constant.dart';
 import 'package:bookly/core/utlis/assets_data.dart';
-import 'package:bookly/features/home_page/presentaion/views/home_page.dart';
+import 'package:bookly/features/home_page/presentaion/views/home_page_view.dart';
 import 'package:bookly/features/splash/presentaion/views/widgets/animated_build.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
