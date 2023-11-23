@@ -1,4 +1,4 @@
-import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_item_details.dart';
+import 'package:bookly/features/home_page/presentaion/views/widgets/custom_item_details.dart';
 import 'package:flutter/material.dart';
 
 class CustomLitsViewBestSeller extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_list_item.dart';
+import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomListBooks extends StatelessWidget {
@@ -18,7 +18,7 @@ class CustomListBooks extends StatelessWidget {
           },
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const CustomListItem();
+            return const CustomBookImage();
           }),
     );
   }
