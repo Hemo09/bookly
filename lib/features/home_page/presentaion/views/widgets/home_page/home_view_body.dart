@@ -20,10 +20,7 @@ class HomePageViewBody extends StatelessWidget {
                   EdgeInsets.only(top: 36, bottom: 30.0, left: 10, right: 10),
               child: CustomAppBar(),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: kPaddingApp),
-              child: CustomListBooks(),
-            ),
+            CustomListBooks(),
             SizedBox(
               height: 20,
             ),

@@ -7,15 +7,14 @@ class Styles {
     fontWeight: FontWeight.w600,
   );
   static const textStyle20 = TextStyle(
-    fontSize: 20,
-    fontFamily: kFontGTSectraFine,
-    fontWeight: FontWeight.normal,
-  );
+      fontSize: 22,
+      fontFamily: kFontGTSectraFine,
+      fontWeight: FontWeight.normal,
+      fontStyle: FontStyle.italic);
   static const textStyle30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w900,
     fontFamily: kFontGTSectraFine,
-    letterSpacing: 1.2,
   );
   static const textStyle14 = TextStyle(
     fontSize: 14,
