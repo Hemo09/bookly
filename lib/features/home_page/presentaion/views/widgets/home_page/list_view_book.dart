@@ -1,4 +1,4 @@
-import 'package:bookly/features/home_page/presentaion/views/widgets/custom_list_item.dart';
+import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_list_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomListBooks extends StatelessWidget {
