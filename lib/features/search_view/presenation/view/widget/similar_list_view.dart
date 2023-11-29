@@ -1,15 +1,15 @@
 import 'package:bookly/features/home_page/presentaion/views/widgets/custom_item_details.dart';
 import 'package:flutter/material.dart';
 
-class CustomListViewBestSeller extends StatelessWidget {
-  const CustomListViewBestSeller({super.key});
+class SimilarBestSellerListView extends StatelessWidget {
+  const SimilarBestSellerListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.zero,
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),

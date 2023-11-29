@@ -40,7 +40,7 @@ class HomePageViewBody extends StatelessWidget {
       SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.only(left: kPaddingApp),
-          child: CustomLitsViewBestSeller(),
+          child: CustomListViewBestSeller(),
         ),
       ),
     ]);
