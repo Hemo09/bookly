@@ -1,11 +1,15 @@
 import 'package:bookly/core/utlis/styles.dart';
+import 'package:bookly/features/home_page/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
+      {super.key,
+      this.mainAxisAlignment = MainAxisAlignment.start,
+      this.model});
   final MainAxisAlignment mainAxisAlignment;
+  final BookModel? model;
   @override
   Widget build(BuildContext context) {
     return Row(

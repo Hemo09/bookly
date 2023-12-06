@@ -16,9 +16,11 @@ class CustomListViewBestSeller extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, i) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0),
-                child: CustomBookListViewItem(),
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: CustomBookListViewItem(
+                  books: state.books[i],
+                ),
               );
             },
             itemCount: state.books.length,

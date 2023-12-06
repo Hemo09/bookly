@@ -1,13 +1,14 @@
 import 'package:bookly/core/utlis/app_routes.dart';
-import 'package:bookly/core/utlis/assets_data.dart';
 import 'package:bookly/core/utlis/styles.dart';
 import 'package:bookly/features/home_page/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/book_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBookListViewItem extends StatelessWidget {
-  const CustomBookListViewItem({super.key});
+  const CustomBookListViewItem({super.key, this.books});
+  final BookModel? books;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +23,10 @@ class CustomBookListViewItem extends StatelessWidget {
             child: Row(
               children: [
                 AspectRatio(
-                  aspectRatio: 2.6 / 4,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(8),
-                      image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(AssetData.testImage),
-                      ),
-                    ),
-                  ),
-                ),
+                    aspectRatio: 2.6 / 4,
+                    child: CachedNetworkImage(
+                      imageUrl: books!.volumeInfo.imageLinks.thumbnail,
+                    )),
               ],
             ),
           ),
@@ -46,8 +39,8 @@ class CustomBookListViewItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
-                  child: const Text(
-                    "Harry Potter and the Goblet of Fire",
+                  child: Text(
+                    books!.volumeInfo.title!,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle20,
@@ -56,14 +49,14 @@ class CustomBookListViewItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  "Hello",
+                Text(
+                  books!.volumeInfo.authors![0],
                   style: Styles.textStyle14,
                 ),
                 Row(
                   children: [
                     Text(
-                      "19.99\$",
+                      books!.saleInfo!.saleability!,
                       style: Styles.textStyle18
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
