@@ -25,7 +25,8 @@ class CustomBookListViewItem extends StatelessWidget {
                 AspectRatio(
                     aspectRatio: 2.6 / 4,
                     child: CachedNetworkImage(
-                      imageUrl: books!.volumeInfo.imageLinks.thumbnail,
+                      imageUrl: books!.volumeInfo.imageLinks?.thumbnail ??
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCH2DxG-uK_hoyStPpv6LDVfMFpBrCr4pAfA&usqp=CAU",
                     )),
               ],
             ),
@@ -50,13 +51,13 @@ class CustomBookListViewItem extends StatelessWidget {
                   height: 3,
                 ),
                 Text(
-                  books!.volumeInfo.authors![0],
+                  books!.volumeInfo.authors?[0] ?? "No name",
                   style: Styles.textStyle14,
                 ),
                 Row(
                   children: [
                     Text(
-                      books!.saleInfo!.saleability!,
+                      "free",
                       style: Styles.textStyle18
                           .copyWith(fontWeight: FontWeight.bold),
                     ),

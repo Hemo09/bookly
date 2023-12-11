@@ -25,15 +25,17 @@ class CustomListBooks extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return CustomBookImage(
                     imageUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                        state.books[index].volumeInfo.imageLinks!.thumbnail,
                   );
                 }),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Text(state.erorrMessage);
+          return Center(child: Text(state.erorrMessage));
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
           );
         }
       },

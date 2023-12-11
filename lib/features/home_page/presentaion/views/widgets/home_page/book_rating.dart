@@ -1,5 +1,4 @@
 import 'package:bookly/core/utlis/styles.dart';
-import 'package:bookly/features/home_page/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -21,6 +20,7 @@ class BookRating extends StatelessWidget {
         const Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
+          size: 22,
         ),
         const SizedBox(
           width: 6.3,

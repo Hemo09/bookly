@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
   const CustomBookImage({super.key, required this.imageUrl});
-  final String? imageUrl;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class CustomBookImage extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 2.7 / 4,
           child: CachedNetworkImage(
-            imageUrl: imageUrl!,
+            imageUrl: imageUrl,
             fit: BoxFit.fill,
             placeholder: (context, url) => const Center(
               child: CircularProgressIndicator(

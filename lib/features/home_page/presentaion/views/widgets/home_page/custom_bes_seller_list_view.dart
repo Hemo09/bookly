@@ -26,7 +26,7 @@ class CustomListViewBestSeller extends StatelessWidget {
             itemCount: state.books.length,
           );
         } else if (state is NewestBooksFailure) {
-          return Text(state.errorMessage);
+          return Expanded(child: Center(child: Text(state.errorMessage)));
         } else {
           return const Center(
             child: CircularProgressIndicator(
