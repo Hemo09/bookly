@@ -1,6 +1,8 @@
 import 'package:bookly/constant.dart';
+import 'package:bookly/features/home_page/presentaion/view_model/similar_books/similar_books_cubit.dart';
 import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_book_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SimilarListViewBook extends StatelessWidget {
   const SimilarListViewBook({super.key});
@@ -9,22 +11,36 @@ class SimilarListViewBook extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: kPaddingApp),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * .15,
-        child: ListView.separated(
-            physics: const BouncingScrollPhysics(),
-            itemCount: 20,
-            separatorBuilder: (context, index) {
-              return const SizedBox(
-                width: 8,
-              );
-            },
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return CustomBookImage(
-                imageUrl: noImage,
-              );
-            }),
+      child: BlocBuilder<SimilarBooksCubit, SimilarBooksState>(
+        builder: (context, state) {
+          if (state is SimilarBooksSucess) {
+            return SizedBox(
+              height: MediaQuery.of(context).size.height * .15,
+              child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: 20,
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 8,
+                    );
+                  },
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CustomBookImage(
+                      imageUrl: noImage,
+                    );
+                  }),
+            );
+          } else if (state is SimilarBooksFailuer) {
+            return Text(state.errorMessage);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            );
+          }
+        },
       ),
     );
   }

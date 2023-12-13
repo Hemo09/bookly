@@ -15,7 +15,7 @@ class CustomBookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(NamedRouteScreen.kBookDetails);
+        GoRouter.of(context).push(NamedRouteScreen.kBookDetails, extra: books);
       },
       child: Row(
         children: [

@@ -1,5 +1,5 @@
 import 'package:bookly/core/utlis/server_locator.dart';
-import 'package:bookly/features/home_page/data/repos/home_repo.dart';
+import 'package:bookly/features/home_page/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home_page/data/repos/home_repo_implement.dart';
 import 'package:bookly/features/home_page/presentaion/view_model/similar_books/similar_books_cubit.dart';
 import 'package:bookly/features/home_page/presentaion/views/book_details_view.dart';
@@ -29,7 +29,9 @@ class AppRoutes {
       path: NamedRouteScreen.kBookDetails,
       builder: (context, state) => BlocProvider(
         create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImplement>()),
-        child: const BookDetailsView(),
+        child: BookDetailsView(
+          bookModel: state.extra as BookModel,
+        ),
       ),
     ),
     GoRoute(
