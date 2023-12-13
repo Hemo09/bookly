@@ -1,3 +1,4 @@
+import 'package:bookly/constant.dart';
 import 'package:bookly/core/utlis/app_routes.dart';
 import 'package:bookly/core/utlis/styles.dart';
 import 'package:bookly/features/home_page/data/models/book_model/book_model.dart';
@@ -25,8 +26,8 @@ class CustomBookListViewItem extends StatelessWidget {
                 AspectRatio(
                     aspectRatio: 2.6 / 4,
                     child: CachedNetworkImage(
-                      imageUrl: books!.volumeInfo.imageLinks?.thumbnail ??
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCH2DxG-uK_hoyStPpv6LDVfMFpBrCr4pAfA&usqp=CAU",
+                      imageUrl:
+                          books!.volumeInfo.imageLinks?.thumbnail ?? noImage,
                     )),
               ],
             ),
