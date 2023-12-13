@@ -3,6 +3,9 @@ import 'package:bookly/features/home_page/presentaion/view_model/similar_books/s
 import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../../core/utlis/app_routes.dart';
 
 class SimilarListViewBook extends StatelessWidget {
   const SimilarListViewBook({super.key});
@@ -26,10 +29,16 @@ class SimilarListViewBook extends StatelessWidget {
                   },
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return CustomBookImage(
-                      imageUrl: state.bookModel[index].volumeInfo.imageLinks
-                              ?.thumbnail ??
-                          noImage,
+                    return InkWell(
+                      onTap: () {
+                        GoRouter.of(context).push(NamedRouteScreen.kBookDetails,
+                            extra: state.bookModel[index]);
+                      },
+                      child: CustomBookImage(
+                        imageUrl: state.bookModel[index].volumeInfo.imageLinks
+                                ?.thumbnail ??
+                            noImage,
+                      ),
                     );
                   }),
             );
