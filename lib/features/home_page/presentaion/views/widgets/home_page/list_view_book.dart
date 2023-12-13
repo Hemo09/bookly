@@ -1,7 +1,9 @@
+import 'package:bookly/core/utlis/app_routes.dart';
 import 'package:bookly/features/home_page/presentaion/view_model/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home_page/presentaion/views/widgets/home_page/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomListBooks extends StatelessWidget {
   const CustomListBooks({super.key});
@@ -23,9 +25,15 @@ class CustomListBooks extends StatelessWidget {
                 },
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return CustomBookImage(
-                    imageUrl:
-                        state.books[index].volumeInfo.imageLinks!.thumbnail,
+                  return InkWell(
+                    onTap: () {
+                      GoRouter.of(context).push(NamedRouteScreen.kBookDetails,
+                          extra: state.books[index]);
+                    },
+                    child: CustomBookImage(
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks!.thumbnail,
+                    ),
                   );
                 }),
           );

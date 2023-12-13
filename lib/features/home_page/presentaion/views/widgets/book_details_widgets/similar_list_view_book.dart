@@ -18,7 +18,7 @@ class SimilarListViewBook extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .15,
               child: ListView.separated(
                   physics: const BouncingScrollPhysics(),
-                  itemCount: 20,
+                  itemCount: state.bookModel.length,
                   separatorBuilder: (context, index) {
                     return const SizedBox(
                       width: 8,
@@ -27,7 +27,9 @@ class SimilarListViewBook extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return CustomBookImage(
-                      imageUrl: noImage,
+                      imageUrl: state.bookModel[index].volumeInfo.imageLinks
+                              ?.thumbnail ??
+                          noImage,
                     );
                   }),
             );
