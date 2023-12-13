@@ -1,3 +1,4 @@
+import 'package:bookly/block_observer.dart';
 import 'package:bookly/constant.dart';
 import 'package:bookly/core/utlis/app_routes.dart';
 import 'package:bookly/core/utlis/server_locator.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   setup();
   runApp(const BooklyApp());
 }
