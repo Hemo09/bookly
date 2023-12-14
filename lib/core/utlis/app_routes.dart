@@ -20,10 +20,6 @@ class NamedRouteScreen {
 class AppRoutes {
   static final routes = GoRouter(routes: [
     GoRoute(
-      path: "/",
-      builder: (context, state) => const SplashView(),
-    ),
-    GoRoute(
       path: NamedRouteScreen.kHomeView,
       builder: (context, state) => const HomePage(),
     ),
@@ -42,6 +38,10 @@ class AppRoutes {
         create: (context) => SearchCubit(getIt.get<SearchViewImplement>()),
         child: const SearchView(),
       ),
+    ),
+    GoRoute(
+      path: "/",
+      builder: (context, state) => const SplashView(),
     ),
   ]);
 }
